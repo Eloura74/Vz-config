@@ -17,3 +17,5 @@
 # along with config.  If not, see <http://www.gnu.org/licenses/>.
 
 /home/biqu/printer_data/config/Backup/move_files.sh /home/biqu/printer_data/config/ /home/biqu/printer_data/config/archive/ "/home/biqu/printer_data/config/printer-*.cfg"
+
+/home/biqu/printer_data/config/Backup/move_files.sh /home/biqu/printer_data/config/ /home/biqu/printer_data/config/archive/ "/home/biqu/printer_data/config/.moonraker.conf.bkp"
