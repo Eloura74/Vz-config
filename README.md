@@ -5,9 +5,15 @@
 
 **Carte mère:** Spider V2.3
 
-**Drivers:** TMC2209.
+**Drivers:** 1x TMC2209 pour extrudeur.
+             4x TMC5160 pro pour stepper X,Y,Z,Z1
+             
 
-**Stepper:** Nema 17 stock Tronxy.
+**Stepper:** Nema 17 stock Tronxy pour Z.
+             Nema 17 LDO Hight Speed pour X,Y.
+             Nema Pankake LDO pour extrudeur.
+
+**Extrudeur:** Orbiteur V2.0
 
 **Bed:** 330x330, plateau chauffant 220V, PEO/PEI.
 
@@ -23,4 +29,7 @@
 
 **Hôte:** CB1 Pi4.
 
-**Alimentation:** 2x 500W 24V slim.
+**Alimentation:** 1x 500W 24V slim.
+                  1X 500W 48V slim.
+                  1x 100W 5V.
+                  
