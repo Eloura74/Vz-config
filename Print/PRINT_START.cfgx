@@ -1,0 +1,83 @@
+#        ___           ___           ___           ___           ___     
+#       /\__\         /\  \         /\  \         /\  \         /\  \    
+#      /::|  |       /::\  \       /::\  \       /::\  \       /::\  \   
+#     /:|:|  |      /:/\:\  \     /:/\:\  \     /:/\:\  \     /:/\:\  \  
+#    /:/|:|__|__   /::\~\:\  \   /:/  \:\  \   /::\~\:\  \   /:/  \:\  \ 
+#   /:/ |::::\__\ /:/\:\ \:\__\ /:/__/ \:\__\ /:/\:\ \:\__\ /:/__/ \:\__\
+#   \/__/~~/:/  / \/__\:\/:/  / \:\  \  \/__/ \/_|::\/:/  / \:\  \ /:/  /
+#         /:/  /       \::/  /   \:\  \          |:|::/  /   \:\  /:/  / 
+#        /:/  /        /:/  /     \:\  \         |:|\/__/     \:\/:/  /  
+#       /:/  /        /:/  /       \:\__\        |:|  |        \::/  /   
+#       \/__/         \/__/         \/__/         \|__|         \/__/    
+# 
+
+###################################################################
+######################   Départ Print    ##########################
+###################################################################
+
+#[gcode_macro START_PRINT]
+[gcode_macro PRINT_START]
+variable_parameter_AREA_START : 0,0  
+variable_parameter_AREA_END : 0,0    
+gcode:
+    {% set BED_TEMP = params.BED_TEMP|default(70)|float %}
+    {% set EXTRUDER_TEMP = params.EXTRUDER_TEMP|default(200)|float %}
+    
+  ###########################
+    # Départ des Chauffes #
+  ###########################
+    # Attendre que le BED et Extru soit à température : 
+  status_heating
+    M190 S{BED_TEMP}
+    M109 S{EXTRUDER_TEMP}
+    G28
+    CLEAN
+  ################################
+  #       Netoyage plateau       #
+  ################################
+    # G28
+    # KDUST
+  ################################
+    # Home, level Gantry et Mesh
+  ################################
+  status_home_d
+    G1 E-2.0 F3000
+    G28  # AutoHome
+  status_home_f
+  ###########################
+   #   Klicky et Brosse   #
+  ###########################
+    #ATTACH_PROBE
+    #QUAD_GANTRY_LEVEL
+    #G1 X290 Y290 F10000
+    #G28
+    #CLEAN_NOZZLE
+  ###################################
+    #   Calibrate_Z et Bed_Mesh   #
+  ###################################
+    Z_TILT_ADJUST 
+    G28 Z 
+    CLEAN
+    BED_MESH_CLEAR
+  status_mesh_d
+    BED_MESH_CALIBRATE_RECT
+    #BED_MESH_CALIBRATE AREA_START={params.AREA_START|default("0,0")} AREA_END={params.AREA_END|default("0,0")}
+    CLEAN
+  status_mesh_f
+  #####################
+  #       Départ      #
+  #####################
+    G90     # Utilisation des coordonées absolues 
+    M117    # Purge de l'extrudeur
+    G92 E0  # Reset de l'extrudeur
+    G1 Z10.0 F3000  # Déplacer légerement pour éviter le frottement sur le Bed 
+  status_purge_d
+    ADAPTIVE_PURGE
+  status_purge_f
+    CLEAN
+    G1 Z4.0 F3000  # Déplacer légerement pour éviter le frottement sur le Bed
+    M220 S100
+    SET_FAN_SPEED FAN=Fan_Stepper SPEED=1
+  status_ready
+  UPDATE_DELAYED_GCODE ID=STOP_EFFECT_DURATION DURATION=600 # Arreter les Led apres 60secondes
+    CLEAR_ZHOP
