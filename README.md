@@ -1,35 +1,41 @@
 # Vz-config
-*Sauvegarde de ma config Vzbot*
+## Sauvegarde de ma config Vzbot
 
-**Base de la machine:** Tronxy X5SA.
+![image](/bandeau.png)
 
-**Carte mère:** Spider V2.3
+### Base de la machine
+- **Modèle :** Tronxy X5SA
+- **Carte mère :** Spider V2.3
 
-**Drivers:** 1x TMC2209 pour extrudeur.<br>
-             4x TMC5160 pro pour stepper X,Y,Z,Z1
-             
+### Composants
+- **Drivers :** 
+  - 1x TMC2209 pour l'extrudeur
+  - 4x TMC5160 pro pour les steppers X, Y, Z, Z1
+- **Steppers :** 
+  - Nema 17 stock Tronxy pour Z
+  - Nema 17 LDO High Speed pour X, Y
+  - Nema Pancake LDO pour l'extrudeur
+- **Extrudeur :** Orbiteur V2.0
+- **Bed :** 330x330, plateau chauffant 220V, PEO/PEI
+- **Courroies :** GT2 Powge
+- **Rails linéaires :** KWG MGN12H et MGN9H
+- **Tête :** VzPrinthead CNC
+- **Hotend :** Goliath Air
+- **Can :** Ebb36, Utoc
+- **Hôte :** CB1 Pi4
+- **Alimentation :** 
+  - 1x 500W 24V slim
+  - 1x 500W 48V slim
+  - 1x 100W 5V
 
-**Stepper:** Nema 17 stock Tronxy pour Z.<br>
-             Nema 17 LDO Hight Speed pour X,Y.<br>
-             Nema Pankake LDO pour extrudeur.
+### Guide d'Installation et de Configuration
+*À venir prochainement...*
 
-**Extrudeur:** Orbiteur V2.0
+### Stratégies de Maintenance
+*À venir prochainement...*
 
-**Bed:** 330x330, plateau chauffant 220V, PEO/PEI.
+### FAQ
+*À venir prochainement...*
 
-**Courroies:** GT2 Powge
-
-**Rails linéaires:** KWG MGN12H et MGN9H.
-
-**Tête:** VzPrinthead CNC.
-
-**Hotend:** Goliath Air.
-
-**Can:** Ebb36, Utoc.
-
-**Hôte:** CB1 Pi4.
-
-**Alimentation:** 1x 500W 24V slim.<br>
-                  1X 500W 48V slim.<br>
-                  1x 100W 5V.
-                  
+### Ressources Supplémentaires
+*À venir prochainement...*
