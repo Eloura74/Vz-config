@@ -27,7 +27,7 @@
   - 1x 500W 24V slim
   - 1x 500W 48V slim
   - 1x 100W 5V
-- **Fan : RSCS pour bed
+- **Fan :** RSCS pour bed
 ### Guide d'Installation et de Configuration
 *À venir prochainement...*
 
